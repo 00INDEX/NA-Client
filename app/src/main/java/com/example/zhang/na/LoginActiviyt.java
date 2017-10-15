@@ -10,7 +10,7 @@ import android.widget.EditText;
 import static com.example.zhang.na.R.id.sign_in_button;
 
 /**
- * Created by zhang on 2017/10/15.
+ * Created by 张硕 on 2017/10/13.
  */
 
 public class LoginActiviyt extends Activity{
@@ -21,7 +21,6 @@ public class LoginActiviyt extends Activity{
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.login);
         user_text = (EditText) findViewById(R.id.user);
         password_text = (EditText) findViewById(R.id.password);
@@ -37,12 +36,7 @@ public class LoginActiviyt extends Activity{
                 }else if(TextUtils.isEmpty(password)){
                     password_text.setError(getString(R.string.password_empty));
                 }else attempt_login_in(user,password);
-            }
-        });
-
-
-
-    }
+            }});}
     public void attempt_login_in(String user,String password){
 
     }
