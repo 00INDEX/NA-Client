@@ -1,11 +1,15 @@
 package com.example.zhang.na;
 
 import android.app.Activity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+
+
+import java.util.HashMap;
 
 import static com.example.zhang.na.R.id.sign_in_button;
 
@@ -18,9 +22,11 @@ public class LoginActiviyt extends Activity{
     private EditText password_text;
     private Button sign_in;
     private Button sign_up;
+    private SharedPreferences setting;
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.login);
         user_text = (EditText) findViewById(R.id.user);
         password_text = (EditText) findViewById(R.id.password);
@@ -38,6 +44,13 @@ public class LoginActiviyt extends Activity{
                 }else attempt_login_in(user,password);
             }});}
     public void attempt_login_in(String user,String password){
+
+        HashMap<String,String> urlParams = new HashMap<String,String>();
+        urlParams.put("user",user);
+        urlParams.put("password",user);
+        try{
+            this.doTaskAsync(C.task.login,C.apilogin,urlParams);
+        }catch(Exception e){e.printStackTrace();}
 
     }
 }
