@@ -48,9 +48,7 @@ public class LoginActiviyt extends Activity{
         HashMap<String,String> urlParams = new HashMap<String,String>();
         urlParams.put("user",user);
         urlParams.put("password",user);
-        try{
-            this.doTaskAsync(C.task.login,C.apilogin,urlParams);
-        }catch(Exception e){e.printStackTrace();}
+
 
     }
 }
